@@ -1,0 +1,610 @@
+/* =========================================
+   🧱 CSS RESET + БАЗОВЫЕ НАСТРОЙКИ САЙТА
+   ========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* 🔥 теперь фон всегда черный */
+  color: #fff;
+  scroll-behavior: smooth;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+  overflow-x: hidden; /* убираем горизонтальную прокрутку */
+}
+
+/* Убираем стандартное оформление ссылок, кнопок и полей ввода */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  color: inherit;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Чтобы фон страницы не мигал белым при загрузке видео */
+html {
+  background-color: #000;
+}
+
+
+:root{
+  --bg:#050505;
+  --muted:#0e0e0e;
+  --text:#e9e9e9;
+  --muted-text:#9a9a9a;
+  --glass:rgba(255,255,255,0.03);
+  --accent:rgba(255,255,255,0.06);
+  --danger:#ff5a5a;
+  --nav-h:64px;
+  --max-w:1150px;
+  --trans:300ms cubic-bezier(.2,.9,.25,1);
+}
+
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background:linear-gradient(180deg,var(--bg), #0a0a0a 120vh);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.4;
+}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;
+  display:flex;align-items:center;backdrop-filter:blur(0px);
+  transition:background var(--trans), box-shadow var(--trans), transform 180ms ease;
+  background:transparent;padding:0 18px;
+}
+.nav.scrolled{ background:rgba(0,0,0,0.66); box-shadow:0 8px 30px rgba(0,0,0,0.6) }
+
+.nav-inner{width:100%;max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;letter-spacing:1px}
+.logo-sub{opacity:.6;font-weight:400;margin-left:6px;font-size:.9em}
+
+.nav-links{display:flex;gap:14px;align-items:center}
+.nav-links a{color:var(--text);padding:8px;border-radius:8px;font-size:14px; text-decoration: none;}
+.nav-links a:hover{background:var(--glass);transform:translateY(-2px);transition:var(--trans)}
+.btn{background:#111;border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:8px;color:var(--text);cursor:pointer}
+.btn-dark{background:#000;border:1px solid rgba(255,255,255,0.02)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;color:var(--text);cursor:pointer}
+
+.burger{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px;cursor:pointer}
+.burger .burger-lines{display:inline-block;width:20px;height:2px;background:var(--text);position:relative}
+.burger .burger-lines::before,.burger .burger-lines::after{
+  content:"";position:absolute;left:0;width:20px;height:2px;background:var(--text);transition:var(--trans)
+}
+.burger .burger-lines::before{top:-6px}
+.burger .burger-lines::after{top:6px}
+.burger.open .burger-lines{background:transparent}
+.burger.open .burger-lines::before{transform:translateY(6px) rotate(45deg)}
+.burger.open .burger-lines::after{transform:translateY(-6px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;top:var(--nav-h);left:0;right:0;background:linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.98));
+  display:flex;flex-direction:column;gap:8px;padding:22px;z-index:950;transform:translateY(-10%);opacity:0;pointer-events:none;transition:var(--trans)
+}
+.mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+.mobile-menu a{color:var(--text);padding:12px;border-radius:8px; }
+
+
+
+/* progress line */
+.progress{position:fixed;top:var(--nav-h);left:0;height:3px;background:linear-gradient(90deg,#fff,#9e9e9e);width:0%;z-index:1001;transition:width 150ms linear}
+
+/* HERO */
+.hero{min-height:calc(100vh - var(--nav-h));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding-top:var(--nav-h)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transform:scale(1.03);transition:transform 8s linear}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25));z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;padding:40px;max-width:980px;animation:fadeUp .9s ease both}
+.hero-title{font-size:clamp(28px,6vw,56px);margin:0 0 8px}
+.hero-desc{color:var(--muted-text);margin:0 0 14px;}
+.hero-cta{display:flex;gap:10px;justify-content:center}
+
+/* shimmer underline (animation) */
+.shimmer{display:inline-block;padding:6px 10px;border-radius:6px;background-size:200% 100%;animation:shimmer 2.8s linear infinite}
+
+/* SECTIONS */
+.wrap{max-width:var(--max-w);margin:0 auto;padding:56px 18px}
+.section-title{font-size:20px;margin-bottom:14px}
+
+/* Кнопки в hero */
+.hero .btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #232526, #414345, #000);
+  background-size: 200%;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.5s ease, background-position 0.8s ease;
+}
+
+.hero .btn:hover {
+ background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+}
+
+/* Тёмная кнопка */
+.hero .btn-dark {
+  background: linear-gradient(90deg, #232526, #414345, #000);
+  background-size: 200%;
+  color: #fff;
+}
+
+.hero .btn-dark:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(64, 224, 208, 0.5);
+}
+
+
+/* === MERCH: усиленный hover (заменить старые .merch-card / .merch-grid правила) === */
+.merch-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  overflow: visible; /* разрешаем свечение выходить за пределы сетки */
+}
+
+/* основная карточка */
+.merch-card{
+  position:relative;
+  overflow:visible;
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.03);
+  padding:12px;
+  transition: transform 0.45s cubic-bezier(.2,.9,.25,1), box-shadow 0.45s cubic-bezier(.2,.9,.25,1), filter 0.45s;
+  will-change: transform, box-shadow, filter;
+  transform-origin:center center;
+  z-index:1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* декоративный "glow" через псевдоэлемент (включается при :hover) */
+.merch-card::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) scale(.92);
+  width: 120%;
+  height: 120%;
+  border-radius: 14px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  /* radial glow: белая яркая подсветка, выглядит нуарно на чёрном фоне */
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.16), rgba(255,255,255,0.07) 25%, rgba(0,0,0,0) 60%);
+  mix-blend-mode: screen;
+}
+
+/* содержимое карточки поверх glow */
+.merch-card .merch-img{
+  position:relative;
+  z-index:2;
+  border-radius:10px;
+  overflow:hidden;
+}
+.merch-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform 0.45s cubic-bezier(.2,.9,.25,1), filter 0.45s;
+}
+
+/* метаинформация */
+.merch-card .merch-meta{ position:relative; z-index:2; margin-top:10px; }
+
+/* сильный hover — масштаб + яркий glow + поднятие над соседями */
+.merch-card:hover,
+.merch-card.hovered {
+  transform: translateY(-14px) scale(1.07);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.75),            /* глубокая тень */
+    0 0 40px 8px rgba(255, 255, 255, 0.194);      /* яркая внешняя подсветка */
+  filter: brightness(1.06);
+  z-index:60; /* поверх соседних карточек */
+}
+
+/* усиление изображения внутри при наведении */
+.merch-card:hover img,
+.merch-card.hovered img{
+  transform: scale(1.09);
+  filter: brightness(1.22) contrast(1.05);
+}
+
+/* включаем glow */
+.merch-card:hover::before,
+.merch-card.hovered::before{
+  opacity:1;
+  transform: translate(-50%,-50%) scale(1.03);
+}
+
+/* лёгкое поведение при нажатии */
+.merch-card:active{ transform: translateY(-10px) scale(1.05); }
+
+/* Предотвращаем лишние анимации для тех, кто выбрал reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .merch-card, .merch-card img, .merch-card::before { transition: none !important; animation: none !important; transform: none !important; }
+}
+
+/* TRACKS */
+.tracks-wrap{display:flex;align-items:center;gap:12px}
+.track-nav{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px;border-radius:8px;cursor:pointer}
+.tracks-list{display:flex;gap:12px;padding:8px;overflow:auto;scroll-behavior:smooth}
+.track-card{min-width:250px;background:var(--muted);border-radius:12px;padding:10px;display:flex;gap:10px;align-items:center;border:1px solid rgba(255,255,255,0.03);transition:transform var(--trans)}
+.track-card:hover{transform:translateY(-6px)}
+.track-art{width:64px;height:64px;border-radius:8px;overflow:hidden;flex:0 0 64px}
+.track-meta{flex:1}
+.play-btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,0.03);cursor:pointer;transition:transform 160ms ease}
+.play-btn.playing{animation:spin 1s linear infinite}
+
+/* === ОСНОВА === */
+.track-card {
+  position: relative;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.3, 1),
+              box-shadow 0.5s ease,
+              border-color 0.5s ease;
+  z-index: 1;
+}
+
+/* === ЭФФЕКТ ПРИ НАВЕДЕНИИ === */
+.track-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* === АКТИВНЫЙ ТРЕК — С GLOW ЭФФЕКТОМ === */
+.track-card.active {
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  animation: trackGlowPulse 3.5s ease-in-out infinite;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.3, 1),
+              box-shadow 0.5s ease,
+              border-color 0.5s ease;
+}
+
+/* === КОГДА АКТИВНАЯ КАРТОЧКА ПОД КУРСОРОМ === */
+.track-card.active:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* === МЯГКИЙ GLOW "ДЫХАНИЕ" === */
+@keyframes trackGlowPulse {
+  0%   { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+  10%  { box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.15); }
+  50%  { box-shadow: 0 0 35px 12px rgba(255, 255, 255, 0.4); }
+  90%  { box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.15); }
+  100% { box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+
+/* === СЕКЦИЯ КЛИПОВ === */
+.videos-section {
+  padding: 100px 10%;
+  background: #000;
+}
+
+.videos-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.video-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.clip {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.video-card:hover .clip {
+  filter: brightness(1);
+}
+
+/* текст теперь под видео */
+.video-info {
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  padding: 12px 0;
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.video-info h3 {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.video-info p {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+
+/* === МОДАЛЬНОЕ ОКНО === */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-modal.active {
+  display: flex;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ========================= ORDER ========================= */
+
+/* Общий контейнер заказа */
+.order-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+}
+
+/* Ввод и кнопка — базовый вид */
+.order-row input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.order-row button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 0;
+  background: #111;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ========== Order секция (мягкий glow-пульс) ========== */
+#order {
+  position: relative;
+  z-index: 20;
+  overflow: visible;
+  border-radius: 18px;
+  transition: box-shadow 0.6s ease;
+}
+
+/* "Дышащее" свечение */
+#order.glow {
+  animation: orderGlowPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes orderGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 0 0 40px 15px rgba(0, 255, 255, 0.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #order.glow {
+    animation: none;
+    box-shadow: 0 0 20px 6px rgba(0, 255, 255, 0.12);
+  }
+}
+
+/* ========== КНОПКА ОФОРМЛЕНИЯ ========== */
+/* Анимация мягкого пульса для глоу */
+@keyframes subtleGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  }
+}
+
+/* === КНОПКА === */
+#placeOrder {
+  background: #000;
+  color: #ffffff;
+  font-weight: 600;
+  border: 2px solid rgba(199, 199, 199, 0.3);
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* при наведении — бирюзовый глоу */
+#placeOrder:hover {
+  box-shadow: 0 0 25px rgba(227, 227, 227, 0.794);
+  transform: translateY(-4px);
+}
+
+/* при нажатии — легкое погружение */
+#placeOrder:active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* === ПОЛЕ ВВОДА === */
+#orderEmail {
+  border: 2px solid rgba(199, 199, 199, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* мягкое свечение внутри при фокусе */
+#orderEmail:focus {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0 0 20px rgba(223, 223, 223, 0.601);
+  border-color: rgba(225, 225, 225, 0.5);
+  transform: translateY(-4px);
+}
+
+/* при нажатии — легкое движение вверх */
+#orderEmail:active {
+  transform: translateY(-2px);
+}
+
+/* при потере фокуса — плавный возврат */
+#orderEmail:not(:focus) {
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+/* FOOTER */
+.footer{padding:40px 16px;color:var(--muted-text);text-align:center}
+
+/* MODALS */
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:grid;place-items:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity var(--trans)}
+.modal-backdrop.open{opacity:1;pointer-events:auto}
+.modal{width:clamp(280px,80vw,520px);background:#070707;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.04);transform:translateY(10px);opacity:0;transition:transform var(--trans),opacity var(--trans)}
+.modal-backdrop.open .modal{transform:translateY(0);opacity:1}
+.field{display:block;margin-top:12px}
+.field input{width:100%;padding:12px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.pass-field{position:relative}
+.pass-field .eye{position:absolute;right:6px;top:6px;background:transparent;border:0;color:var(--muted-text);cursor:pointer;padding:6px}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: #222;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #767676, #ffffff);
+  transition: width 0.1s linear;
+}
+
+
+/* TO TOP */
+.to-top{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#111,#0b0b0b);border:1px solid rgba(255,255,255,0.06);cursor:pointer;z-index:1100;transform:translateY(12px);opacity:0;transition:transform 200ms var(--trans),opacity var(--trans)}
+.to-top.visible{transform:translateY(0);opacity:1}
+.to-top svg{width:22px;height:22px;fill:var(--text)}
+
+/* RESPONSIVE */
+@media (max-width:1000px){
+  .merch-grid{grid-template-columns:repeat(3,1fr)}
+  .clips-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:700px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mobile-menu{display:flex}
+  .merch-grid{grid-template-columns:repeat(2,1fr)}
+  .clips-grid{grid-template-columns:1fr}
+  .track-card{min-width:220px}
+}
+
+/* KEYFRAMES & small animations (many to satisfy requirement) */
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }   /* hero ingress */
+@keyframes shimmer { 0%{background-position:-200px 0} 100%{background-position:200px 0} }        /* title shimmer */
+@keyframes spin { to{ transform: rotate(360deg)} }                                             /* play spin */
+@keyframes pulse { 0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)} }    /* small pulse */
+@keyframes floaty { 0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)} } /* logo float */
+@keyframes slideInLeft { from{opacity:0;transform:translateX(-12px)} to{opacity:1;transform:none} } /* clip entry */
+@keyframes modalPop { from{opacity:0;transform:translateY(12px) scale(.98)} to{opacity:1;transform:none} } /* modal */
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+

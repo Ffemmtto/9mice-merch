@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>9mice — Merch</title>
+  <meta name="description" content="Готический мерч исполнителя группы Viperr - 9mice" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav" class="nav">
+    <div class="nav-inner">
+      <div class="logo" id="logo">9mice<span class="logo-sub">.MERCH</span></div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home" data-scroll>HOME</a>
+        <a href="#merch" data-scroll>MERCH</a>
+        <a href="#tracks" data-scroll>TRACKS</a>
+        <a href="#clips" data-scroll>CLIPS</a>
+        <a href="#order" data-scroll>ORDER</a>
+        <button id="openReg" class="btn-ghost">REGISTER</button>
+      </div>
+
+      <button id="burger" class="burger" aria-label="menu" aria-expanded="false">
+        <span class="burger-lines"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="progress" class="progress"></div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <a href="#home" data-scroll class="nav-btn">HOME</a>
+    <a href="#merch" data-scroll>MERCH</a>
+    <a href="#tracks" data-scroll>TRACKS</a>
+    <a href="#clips" data-scroll>CLIPS</a>
+    <a href="#order" data-scroll>ORDER</a>
+    <button id="openRegMobile" class="btn-ghost">REGISTER</button>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <video id="bgVideo" class="hero-video" autoplay muted loop playsinline preload="auto">
+      <!-- Положи сюда файл: assets/u-plus-me-official-2025.mp4 -->
+      <source src="assets/u-plus-me-official-2025.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-title"><span class="shimmer">9mice — MERCH</span></h1>
+      <p class="hero-desc">Лимитированные дропы. Треклист. Клипография.</p>
+      <div class="hero-cta">
+        <a href="#merch" data-scroll class="btn">Merch</a>
+        <a href="#tracks" data-scroll class="btn btn-dark">Listen</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- MERCH (9 карточек) -->
+    <section id="merch" class="section wrap">
+      <h2 class="section-title">Мерч</h2>
+      <div id="merchGrid" class="merch-grid">
+        <!-- 9 items; меняй картинки в assets/merch-*.jpg -->
+        <article class="merch-card" data-title="Viperr Federation Tour">
+          <div class="merch-img"><img src="assets/img/merch-1.jpg" alt="Viperr Federation Tour"></div>
+          <div class="merch-meta">
+            <div class="merch-title">Viperr Federation Tour</div>
+            <div class="merch-price">19.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="2024VIPERR T-Shirt">
+          <div class="merch-img"><img src="assets/img/merch-2.jpg" alt="2024VIPERR T-Shirt"></div>
+          <div class="merch-meta">
+            <div class="merch-title">2024VIPERR T-Shirt</div>
+            <div class="merch-price">11.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="2024VIPERR Longsleeve">
+          <div class="merch-img"><img src="assets/img/merch-3.jpg" alt="2024VIPERR Longsleeve"></div>
+          <div class="merch-meta">
+            <div class="merch-title">2024VIPERR Longsleeve</div>
+            <div class="merch-price">15.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="Heavy Metall T-Shirt">
+          <div class="merch-img"><img src="assets/img/merch-4.jpg" alt="Heavy Metall T-Shirt"></div>
+          <div class="merch-meta">
+            <div class="merch-title">Heavy Metall T-Shirt</div>
+            <div class="merch-price">9.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="Heavy Metall Beanie">
+          <div class="merch-img"><img src="assets/img/merch-5.jpg" alt="Heavy Metall Beanie"></div>
+          <div class="merch-meta">
+            <div class="merch-title">Heavy Metall Beanie</div>
+            <div class="merch-price">7.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="Viperr World Tour T-Shirt">
+          <div class="merch-img"><img src="assets/img/merch-6.jpg" alt="Viperr World Tour T-Shirt"></div>
+          <div class="merch-meta">
+            <div class="merch-title">Viperr World Tour T-Shirt</div>
+            <div class="merch-price">SOLD OUT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="9M Cap">
+          <div class="merch-img"><img src="assets/img/merch-7.jpg" alt="9M Cap"></div>
+          <div class="merch-meta">
+            <div class="merch-title">9M Cap</div>
+            <div class="merch-price">8.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="Heavy Metall Vinyl">
+          <div class="merch-img"><img src="assets/img/merch-8.jpg" alt="Heavy Metall Vinyl"></div>
+          <div class="merch-meta">
+            <div class="merch-title">Heavy Metall Vinyl</div>
+            <div class="merch-price">29.990 KZT</div>
+          </div>
+        </article>
+
+        <article class="merch-card" data-title="9MM Vinyl">
+          <div class="merch-img"><img src="assets/img/merch-9.jpg" alt="9MM Vinyl"></div>
+          <div class="merch-meta">
+            <div class="merch-title">9MM Vinyl</div>
+            <div class="merch-price">PRE-ORDER</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRACKS (carousel) -->
+    <section id="tracks" class="section wrap">
+      <h2 class="section-title">Треки</h2>
+
+      <div class="tracks-wrap">
+        <button id="tracksPrev" class="track-nav">◀</button>
+        <div id="tracksList" class="tracks-list" tabindex="0" aria-label="Tracks carousel"></div>
+        <button id="tracksNext" class="track-nav">▶</button>
+      </div>
+      <p class="muted">Viperr — слушай дуэт, ставший голосом новой сцены.</p>
+    </section>
+
+    <!-- CLIPS -->
+    <section id="clips" class="videos-section">
+  <h2 class="section-title">Клипы</h2>
+  <div class="videos-container">
+
+    <div class="video-card">
+      <video class="clip" poster="assets/u-plus-me-poster.jpg" controls></video>
+      <div class="video-info">
+        <h3>9mice - u+me</h3>
+        <p>Official Music Video</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video class="clip" poster="assets/october-poster.jpg" controls></video>
+      <div class="video-info">
+        <h3>LIL KRYSTALLL(feat. 9mice) - Октябрь</h3>
+        <p>Official Music Video</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video class="clip" poster="assets/lipstick-poster.jpg" controls></video>
+      <div class="video-info">
+        <h3>Kai Angel & 9mice - LIPSTICK</h3>
+        <p>Official Music Video</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video class="clip" poster="assets/devo4ka-fanposter.jpg" controls></video>
+      <div class="video-info">
+        <h3>9mice feat. glaive - DEVO4KA</h3>
+        <p>Fan Clip by Sloweryy</p>
+      </div>
+    </div>
+  </div>
+  <p class="muted">9mice: готическая музыка, воплощённая в кадре.</p>
+</section>
+
+<!-- модальное окно для видео -->
+<!-- <div class="video-modal" id="videoModal">
+  <div class="video-wrapper">
+    <iframe id="videoFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div> -->
+
+
+    <!-- ORDER -->
+    <section id="order" class="section wrap">
+      <h2 class="section-title">Оформить заказ</h2>
+      <div class="order-row">
+        <input id="orderEmail" type="email" placeholder="Ваша почта" />
+        <button id="placeOrder" class="btn">Оформить заказ</button>
+      </div>
+      <p class="muted">Введите почту для оформления заказа.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    ©VIPERR • 9mice • merch • tracklist • clips 
+  </footer>
+
+  <!-- MODALS -->
+  <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Регистрация</h3>
+      <p class="muted">Введите почту и пароль.</p>
+
+      <label class="field">
+        <input id="regEmail" type="email" placeholder="Email">
+      </label>
+
+      <label class="field pass-field">
+        <input id="regPassword" type="password" placeholder="Password">
+        <button id="togglePassword" class="eye" aria-label="show password">👁</button>
+      </label>
+
+      <div class="modal-actions">
+        <button id="regCancel" class="btn-ghost">Отмена</button>
+        <button id="regSubmit" class="btn">Зарегистрироваться</button>
+      </div>
+
+      <div id="regMsg" class="muted small"></div>
+      
+    </div>
+  </div>
+
+  <div id="successBackdrop" class="modal-backdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true">
+    <h3>Заявка отправлена</h3>
+    <p class="muted">Спасибо!</p>
+
+    <div class="progress-container">
+      <div id="successProgress" class="progress-bar"></div>
+    </div>
+
+    <div class="modal-actions">
+      <button id="okSuccess" class="btn">OK</button>
+    </div>
+  </div>
+</div>
+
+  
+  <!-- TO TOP -->
+  <button id="toTop" class="to-top" aria-label="to top" title="Наверх">
+    <svg viewBox="0 0 24 24"><path d="M12 5l-8 8h5v6h6v-6h5z"/></svg>
+  </button>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
